@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './components/e-react-ui.css';
 
 function App() {
   return (
