@@ -1,8 +1,11 @@
 {
   "name": "e-react-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ecelis/e-react-ui.git"
