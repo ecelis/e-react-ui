@@ -10,6 +10,7 @@ Add to project.
 
 ```
 // ...
+import 'e-react-ui/dist/e-reac-ui-css';
 import { Button } from 'e-react-ui/dist';
 // ...
 <Button label="Click me" />

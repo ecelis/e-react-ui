@@ -1,4 +1,4 @@
-import '../src/components/App.css';
+import '../src/components/e-react-ui.css';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
