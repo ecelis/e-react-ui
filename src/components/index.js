@@ -1,4 +1,5 @@
 import React from "react";
+import Autocomplete from './Autocomplete';
 import { Button, Pill } from "./Button";
 import Calendar from './Calendar';
 import {
@@ -8,6 +9,7 @@ import {
 } from './Grid';
 
 export {
+    Autocomplete,
     Button,
     Calendar,
     Col,
