@@ -88,3 +88,9 @@ Pill.propTypes = {
   selected: PropTypes.bool,
   label: PropTypes.string.isRequired
 }
+
+Pill.defaultProps = {
+  primary: false,
+  selected: false,
+  label: 'A Link'
+}
