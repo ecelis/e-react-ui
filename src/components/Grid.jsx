@@ -1,9 +1,20 @@
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 
 export const Grid = styled.div`
     ${props => props.fontFamily ? `font-family: ${props.fontFamily};` : null}
     ${props => props.background ? `background: ${props.background};` : null}
 `;
+
+Grid.propTypes = {
+    background: PropTypes.string,
+    fontFamily: PropTypes.string
+}
+
+Grid.defaultProps = {
+    background: 'var(--light)',
+    fontFamily: "verdana, san-serif"
+}
 
 export const Row = styled.div`
     display: flex;
@@ -19,6 +30,25 @@ export const Row = styled.div`
         }
     };
 `;
+
+const commonDefaults = {
+    border: 'thin dashed var(--dark)',
+    justify: 'left',
+    align: 'left',
+    collapse: false
+}
+
+Row.propTypes = {
+    background: PropTypes.string,
+    color: PropTypes.string,
+    hoverColor: PropTypes.string,
+    border: PropTypes.string,
+    justify: PropTypes.string,
+    align: PropTypes.string,
+    collapse: PropTypes.bool
+}
+
+Row.defaultProps = commonDefaults;
 
 const media = {
     xs: (styles) => `
@@ -50,3 +80,15 @@ export const Col = styled.div`
         `
     )}
 `;
+
+Col.propTypes = {
+    background: PropTypes.string,
+    color: PropTypes.string,
+    hoverColor: PropTypes.string,
+    border: PropTypes.string,
+    justify: PropTypes.string,
+    align: PropTypes.string,
+    collapse: PropTypes.bool
+}
+
+Col.defaultProps = commonDefaults;
