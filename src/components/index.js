@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import { Button, Pill } from "./Button";
 import {
     Col,
     Grid,
@@ -9,5 +9,6 @@ export {
     Button,
     Col,
     Grid,
+    Pill,
     Row
 };
