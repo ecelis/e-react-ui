@@ -114,14 +114,6 @@ export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(getCurrent());
 
   return (
-    <div>
-      <Pill
-      id="newMenuButton"
-      to={"#"}
-      link={true}>
-        <span role="img">{String.fromCodePoint('0x2795')}</span> New Menu
-      </Pill>
-      <div>{currentDate.date}</div>
       <CalendarWrapper>
         <MonthIndicator>
           <time dateTime={`${currentDate.year}-${currentDate.month}`}>{`${currentDate.year} ${currentDate.month}`}</time>
@@ -139,6 +131,5 @@ export default function Calendar() {
           <Days current={currentDate} />
         </DateGrid>
       </CalendarWrapper>
-    </div>
   );
 }
