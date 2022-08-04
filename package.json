@@ -6,6 +6,7 @@
     "dist",
     "README.md"
   ],
+  "homepage": "http://ecelis.github.io/e-react-ui",
   "repository": {
     "type": "git",
     "url": "https://github.com/ecelis/e-react-ui.git"
@@ -26,7 +27,9 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "eslintConfig": {
     "extends": [
@@ -75,6 +78,7 @@
     "@testing-library/user-event": "^13.5.0",
     "babel-plugin-named-exports-order": "0.0.2",
     "cross-env": "^7.0.3",
+    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "storybook-addon-react-router-v6": "^0.1.13",
     "webpack": "^5.74.0"

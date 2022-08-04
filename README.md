@@ -1,6 +1,6 @@
 # e-react-ui
 
-Experiment to create a React component library based on 💅🏾 [styled-components](https://styled-components.com/).
+Experiment to create a React component library based on 💅🏾 [styled-components](https://styled-components.com/). There are some examples at https://ecelis.github.io/e-react-ui/
 
 ## Install
 
