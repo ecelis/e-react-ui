@@ -3,7 +3,7 @@
   --light: #f1ede9;
   --dark: #38382d;
 
-/* Remove these */
+/* Remove these maybe?? */
   --teal-050: #effcf6;
   --teal-100: #c6f7e2;
   --teal-200: #8eedc7;
@@ -51,4 +51,37 @@ body {
   border-color: var(--dark);
   width: 375px;
   text-align: center;
+}
+/* Autocomplete */
+input {
+  border: 1px solid var(--primary);
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.no-suggestions {
+  color: var(--primary);
+  padding: 0.5rem;
+}
+
+.suggestions {
+  border: 1px solid var(--primary);
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
+}
+
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  background-color: var(--blue-grey-300);
+  cursor: pointer;
+  font-weight: 700;
 }
