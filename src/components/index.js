@@ -8,6 +8,7 @@ import {
     Grid,
     Row
 } from './Grid';
+import List from './List';
 
 export {
     Autocomplete,
@@ -16,6 +17,7 @@ export {
     Container,
     Col,
     Grid,
+    List,
     Pill,
     Row
 };
