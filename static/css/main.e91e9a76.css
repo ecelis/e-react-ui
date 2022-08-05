@@ -28,6 +28,7 @@
 }
 
 body {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   background-color: #f1ede9;
   background-color: var(--light);
@@ -96,4 +97,4 @@ input {
 }
 
 
-/*# sourceMappingURL=main.3ea3acf0.css.map*/
+/*# sourceMappingURL=main.e91e9a76.css.map*/
