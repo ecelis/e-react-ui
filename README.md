@@ -9,7 +9,7 @@ Experiment to create a React component library based on 💅🏾 [styled-compone
 - Grid system
 - Autocomplete searchbox
 - Buttons
-- Calendar (WIP)
+- Calendar (WIP #10)
 - Container with overflow control
 - List
 
