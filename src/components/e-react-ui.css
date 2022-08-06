@@ -32,6 +32,7 @@ body {
   width: 100%;
   background-color: var(--light);
   color: var(--dark);
+  display: grid;
 }
 .container {
   display: flex;

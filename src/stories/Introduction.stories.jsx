@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Col, Row } from "../components";
+import { Grid, Col, Row } from "..";
 
 export const IntroPage = () => {
     return (

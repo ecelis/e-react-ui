@@ -1,5 +1,5 @@
 import React from 'react';
-import {Autocomplete} from '../components';
+import {Autocomplete} from '../';
 
 export default {
     title: 'Control/Auto Complete',

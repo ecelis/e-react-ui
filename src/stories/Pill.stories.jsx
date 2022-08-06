@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from 'storybook-addon-react-router-v6';
-import { Pill } from '../components'
+import { Pill } from '..'
 
 export default {
     title: 'Control/Pill',
