@@ -2,6 +2,7 @@ import React from "react";
 import Autocomplete from './Autocomplete';
 import { Button, Pill } from "./Button";
 import Calendar from './Calendar';
+import Carousel from "./Carousel";
 import Container from './Container';
 import {
     Col,
@@ -14,6 +15,7 @@ export {
     Autocomplete,
     Button,
     Calendar,
+    Carousel,
     Container,
     Col,
     Grid,
