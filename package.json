@@ -4,6 +4,7 @@
   "private": false,
   "files": [
     "dist",
+    "src/index.js",
     "README.md"
   ],
   "homepage": "http://ecelis.github.io/e-react-ui",
@@ -15,19 +16,14 @@
     "react": "^18.x",
     "react-dom": "^18.x",
     "react-router-dom": "^6.x",
-    "react-scripts": "5.x",
-    "styled-components": "^5.x",
-    "web-vitals": "^2.x"
+    "styled-components": "^5.x"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "npm run storybook",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,src/stories,__snapshots__ ; rm -rf dist/stories",
     "predeploy": "npm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static"
   },
