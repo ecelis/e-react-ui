@@ -11,7 +11,7 @@ const Container = styled.div`
     
 `;
 
-Container.propTypes = {
+Container.propTypes = { 
     background: PropTypes.string,
     color: PropTypes.string,
     border: PropTypes.string,

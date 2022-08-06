@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function Autocomplete (props) {
     const [state, setState] = useState({
@@ -9,9 +10,9 @@ export default function Autocomplete (props) {
     });
 
     const onChange = e => {
-        const { suggestions } = props;
+        const { items } = props;
         const userInput = e.currentTarget.value;
-        const filteredSuggestions = suggestions.filter(
+        const filteredSuggestions = items.filter(
             suggestion => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
         );
         setState({
@@ -84,7 +85,14 @@ export default function Autocomplete (props) {
                 onChange={onChange}
                 onKeyDown={onKeyDown}
                 value={state.userInput}
+                placeholder={props.label}
                 />
                 {suggestionsListComponent}
         </React.Fragment>);
+}
+
+Autocomplete.propTypes = {
+    label: PropTypes.string,
+    items: PropTypes.array.isRequired,
+    handler: PropTypes.func
 }
