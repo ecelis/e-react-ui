@@ -1,10 +1,9 @@
-import React from "react";
 import Autocomplete from './components/Autocomplete';
 import { Button, Pill } from "./components/Button";
 import Calendar from './components/Calendar';
 import Carousel from "./components/Carousel";
 import Container from './components/Container';
-import GlobalStyle from "./globalStyles";
+import GlobalStyle from "./components/globalStyles";
 import {
     Col,
     Grid,
