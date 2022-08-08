@@ -1,6 +1,6 @@
 import React from 'react';
-import {Carousel} from '../components';
-import { Grid, Row, Col } from '../components';
+import {Carousel} from '..';
+import { Grid, Row, Col } from '..';
 
 export default {
     title: 'Control/Carousel',

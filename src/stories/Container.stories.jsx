@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from '../components';
+import {Container} from '..';
 
 export default {
     title: 'Control/Container',
@@ -15,6 +15,11 @@ const Children = () => {
 const Template = args => <Container {...args}><Children /></Container>;
 export const Default = Template.bind({});
 Default.args = {
+    background: 'none',
+    color: 'primary',
+    border: 'none',
+    height: '106',
+    overflow: 'hidde'
 }
 
 export const ScrollAuto = Template.bind({});
