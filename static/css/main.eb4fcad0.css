@@ -34,6 +34,7 @@ body {
   background-color: var(--light);
   color: #38382d;
   color: var(--dark);
+  display: grid;
 }
 .container {
   display: flex;
@@ -97,4 +98,4 @@ input {
 }
 
 
-/*# sourceMappingURL=main.e91e9a76.css.map*/
+/*# sourceMappingURL=main.eb4fcad0.css.map*/
