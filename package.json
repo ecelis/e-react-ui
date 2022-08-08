@@ -4,7 +4,6 @@
   "private": false,
   "files": [
     "dist",
-    "src/index.js",
     "README.md"
   ],
   "homepage": "http://ecelis.github.io/e-react-ui",
