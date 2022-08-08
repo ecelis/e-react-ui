@@ -15,6 +15,8 @@ Container.propTypes = {
     background: PropTypes.string,
     color: PropTypes.string,
     border: PropTypes.string,
+    overflow: PropTypes.string,
+    height: PropTypes.number,
 }
 
 export default Container;
