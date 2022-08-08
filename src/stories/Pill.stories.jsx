@@ -14,10 +14,21 @@ export default {
 };
 
 const Template = args => <Pill {...args} />;
+
 export const Default = Template.bind({});
 Default.args = {
-  itemId: 1,
-  link: '#',
-  label: 'A Link'
+  id: 1,
+  label: 'Default'
 };
 
+export const Hyperlink = Template.bind({});
+Hyperlink.args = {
+  id: 1, url: '#',
+  label: 'Hyperlink', 
+}
+
+export const OnClick = Template.bind({});
+OnClick.args = {
+  id: 1, label: 'Click Me',
+  onClick: (e) => { e.preventDefault(); console.log('Click pill') }
+}

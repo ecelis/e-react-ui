@@ -62,44 +62,51 @@ const BasePill = styled(Link)`
   width: 5rem;
   background: ${props => props.selected ? "var(--primary)" : "var(--light)"};
   color: ${props => props.selected ? "var(--light)" : "var(--primary)"};
-  border: ${props => props.selected ? "thin solid var(--primary)" : "thin solid var(--light)"};
+  border: ${props => props.selected ? "thin solid var(--light)" : "thin solid var(--primary)"};
   border-radius: 32px;
   font-size: 12px;
   text-align: center;
   text-decoration: none;
   &:active {
     transition: all 180ms ease-in-out;
-    background: ${props => props.primary ? "var(--light)" : "var(--primary)"};
-    color: ${props => props.primary ? "var(--primary)" : "var(--light)"};
-  }
+    background: ${props => props.selected ? "var(--primary)" : "var(--light)"};
+    color: ${props => props.selected ? "var(--light)" : "var(--primary)"};
+    border: ${props => props.selected ? "thin solid var(--light)" : "thin solid var(--primary)"};
+   }
+  &:visited {
+    transition: all 180ms ease-in-out;
+    background: ${props => props.selected ? "var(--primary)" : "var(--light)"};
+    color: ${props => props.selected ? "var(--light)" : "var(--primary)"};
+   }
   &:hover {
-    background: ${props => props.primary ? "var(--light)" : "var(--primary)"};
-    color: ${props => props.primary ? "var(--primary)" : "var(--light)"};
+    background: ${props => props.selected ? "var(--light)" : "var(--primary)"};
+    color: ${props => props.selected ? "var(--primary)" : "var(--light)"};
+    border: ${props => props.selected ? "thin solid var(--light)" : "thin solid var(--primary)"};
   }
 `;
 
 export function Pill (props) {
   return (
     <BasePill
-      onClick={props.onClick}
       id={props.id}
-      to={props.to ? `${props.to}` : `${props.itemType},${props.id}`}
+      onClick={props.onClick}
+      to={props.url ? `${props.url}` : `${props.itemType},${props.id}`}
       selected={props.selected}>
       {`${props.label}`}</BasePill>
   );
 }
 
 Pill.propTypes = {
-  onClick: PropTypes.func,
   id: PropTypes.any.isRequired,
-  to: PropTypes.string.isRequired,
   itemType: PropTypes.any,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
   selected: PropTypes.bool,
-  label: PropTypes.string.isRequired
+  url: PropTypes.string,
 }
 
 Pill.defaultProps = {
-  primary: false,
+  onClick: (e) => e.target.preventDefault(),
   selected: false,
-  label: 'A Link'
+  label: 'Default'
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const CarouselGrid = styled.div`
     height: 100vh;
@@ -96,4 +97,8 @@ export default function Carousel(props) {
             </CarouselContainer>
         </CarouselGrid>
     );    
+}
+
+Carousel.propTypes = {
+    items: PropTypes.array.isRequired,
 }
