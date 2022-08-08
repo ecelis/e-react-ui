@@ -20,7 +20,7 @@
   "scripts": {
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook --docs -s public",
     "clean": "rimraf dist",
     "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,src/stories,__snapshots__ ; rm -rf dist/stories",
     "predeploy": "npm run build-storybook",
