@@ -12,6 +12,7 @@
     "url": "https://github.com/ecelis/e-react-ui.git"
   },
   "dependencies": {
+    "@types/prop-types": "^15.7.5",
     "react": "^18.x",
     "react-dom": "^18.x",
     "react-router-dom": "^6.x",
