@@ -28,6 +28,7 @@
 }
 
 body {
+  display: grid;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   background-color: var(--light);
@@ -60,12 +61,10 @@ input {
   padding: 0.5rem;
   width: 300px;
 }
-
 .no-suggestions {
   color: var(--primary);
   padding: 0.5rem;
 }
-
 .suggestions {
   border: 1px solid var(--primary);
   border-top-width: 0;
@@ -76,14 +75,57 @@ input {
   padding-left: 0;
   width: calc(300px + 1rem);
 }
-
 .suggestions li {
   padding: 0.5rem;
 }
-
 .suggestion-active,
 .suggestions li:hover {
   background-color: var(--blue-grey-300);
   cursor: pointer;
   font-weight: 700;
+}
+ /* Carousel */
+ .slider {
+  z-index: 300;
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+}
+.slide {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  position: absolute;
+  transition: all 0.5s;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 18px;
+}
+.btn:active {
+  transform: scale(1.1);
+}
+.btn-prev {
+  top: 45%;
+  left: 2%;
+}
+.btn-next {
+  top: 45%;
+  right: 2%;
 }
