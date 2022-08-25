@@ -1,5 +1,4 @@
 import React from 'react';
-import {} from '..';
 import { Carousel, GlobalStyles, Grid, Row, Col } from '..';
 
 export default {

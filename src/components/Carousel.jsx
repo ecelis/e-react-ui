@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 
 const Slider = styled.div`
     z-index: 300;
@@ -51,7 +52,7 @@ const CarouselButton = styled.button`
     }
 `;
 
-const Carousel = function (props) {
+export default function Carousel (props) {
     const [state, setState] = useState({
         currentSlide: 0
     });
@@ -107,7 +108,7 @@ const Carousel = function (props) {
                 return (<Slide key={photo.id} style={{
                     transform: `translateX(${100 * (idx - state.currentSlide)}%)`
                 }}>
-                    <img
+                    <img id={idx} key={idx}
                         src={photo.src}
                         alt={photo.alt}
                     />
@@ -121,4 +122,6 @@ const Carousel = function (props) {
     );
 }
 
-export default Carousel;
+Carousel.propTypes = {
+    items: PropTypes.array.isRequired
+}
