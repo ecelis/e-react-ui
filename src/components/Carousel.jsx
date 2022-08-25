@@ -1,4 +1,55 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Slider = styled.div`
+    z-index: 300;
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 36px;`;
+
+const Slide = styled.div`
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+    position: absolute;
+    transition: all 0.5s;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+`;
+
+const CarouselButton = styled.button`
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    z-index: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 18px;
+    ${props => `
+        ${props.direction === 'left' ? `
+        top: 45%;
+        left: 2%;
+        ` : `
+        top: 45%;
+        right: 2%;
+        `}
+    `}
+    &:active {
+        transform: scale(1.1);
+    }
+    &:hover {
+        transform: scale(1.1);
+    }
+`;
 
 const Carousel = function (props) {
     const [state, setState] = useState({
@@ -51,22 +102,22 @@ const Carousel = function (props) {
     }
 
     return (
-        <div className="slider">
+        <Slider>
             {props.items.map((photo, idx) => {
-                return (<div key={photo.id} className={`slide`} style={{
+                return (<Slide key={photo.id} style={{
                     transform: `translateX(${100 * (idx - state.currentSlide)}%)`
                 }}>
                     <img
                         src={photo.src}
                         alt={photo.alt}
                     />
-                </div>)
+                </Slide>)
             })}
-            <button className="btn btn-next"
-                onClick={nextHandler}>{'>'}</button>
-            <button className="btn btn-prev"
-                onClick={prevHandler}>{'<'}</button>
-        </div>
+            <CarouselButton direction="right"
+                onClick={nextHandler}>{'>'}</CarouselButton>
+            <CarouselButton direction="left"
+                onClick={prevHandler}>{'<'}</CarouselButton>
+        </Slider>
     );
 }
 
