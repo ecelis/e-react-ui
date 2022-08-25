@@ -28,6 +28,7 @@
 }
 
 body {
+  display: grid;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   background-color: var(--light);
@@ -60,12 +61,10 @@ input {
   padding: 0.5rem;
   width: 300px;
 }
-
 .no-suggestions {
   color: var(--primary);
   padding: 0.5rem;
 }
-
 .suggestions {
   border: 1px solid var(--primary);
   border-top-width: 0;
@@ -76,11 +75,9 @@ input {
   padding-left: 0;
   width: calc(300px + 1rem);
 }
-
 .suggestions li {
   padding: 0.5rem;
 }
-
 .suggestion-active,
 .suggestions li:hover {
   background-color: var(--blue-grey-300);

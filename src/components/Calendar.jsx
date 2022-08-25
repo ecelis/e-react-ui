@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from "react";
-import { Pill } from "./Button";
 
 const CalendarGrid = styled.div`
   display: grid;

@@ -1,32 +1,29 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import PropTypes from 'prop-types';
 
-const CarouselGrid = styled.div`
-    height: 100vh;
-    display: grid;
-    place-items: center;
-    align-items: start;
-`;
-const CarouselContainer = styled.div`
+const Slider = styled.div`
+    z-index: 300;
     width: 100%;
     max-width: 800px;
-    height: ${props => props.height ? `${props.height};` : `350px;`}
+    height: 350px;
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
-`;
+    border-radius: 36px;`;
+
 const Slide = styled.div`
     width: 100%;
     max-width: 800px;
-    height: ${props => props.height ? `${props.height};` : `350px;`}
-    transform: ${props => `translateX(${(props.x - props.slide) * 100}%);`}
+    height: 350px;
+    position: absolute;
+    transition: all 0.5s;
     img {
         width: 100%;
-        height: ${props => props.height ? `${props.height};` : `350px;`}
+        height: 100%;
         object-fit: cover;
     }
 `;
+
 const CarouselButton = styled.button`
     position: absolute;
     width: 40px;
@@ -50,55 +47,81 @@ const CarouselButton = styled.button`
     &:active {
         transform: scale(1.1);
     }
+    &:hover {
+        transform: scale(1.1);
+    }
 `;
-const ButtonPrev = props => {
-    return <CarouselButton {...props} direction="left">{props.label}</CarouselButton>
-}
-const ButtonNext = props => {
-    return <CarouselButton {...props} direction="right">{props.label}</CarouselButton>
-}
-const Slides = props => {
-    return props.items.map((item, idx) => {
-        return (<Slide key={idx} x={idx} slide={props.slide}>
-            <img
-            src={`${item.url}`}
-            alt={`${item.alt}`}
-            />
-        </Slide>)
+
+export default function Carousel (props) {
+    const [state, setState] = useState({
+        currentSlide: 0
+    });
+    useEffect(() => {
+        document.onkeydown = keyHandler;
+    });
+
+    const slideCount = props.items.length - 1;
+
+    const nextHandler = () => {
+        if(state.currentSlide === slideCount) {
+            setState({...state, ...{currentSlide: 0}})
+        } else {
+            setState({
+                ...state,
+                ...{currentSlide: state.currentSlide + 1}
+            })
         }
+    }
+
+    const keyHandler = (e) => {
+        e = e || window.event;
+    
+        switch (e.code) {
+            case 'ArrowRight':  // next, right arrow
+                nextHandler();
+            break;
+            case 'ArrowLeft':  // prev, left arrow
+                prevHandler()
+            break;
+            default:
+                break;
+        }
+    }
+    
+    const prevHandler = () => {
+        if(state.currentSlide === 0) {
+            setState({
+                ...state,
+                ...{currentSlide: slideCount}
+            });
+        } else {
+            setState({
+                ...state,
+                ...{currentSlide: state.currentSlide - 1}
+            })
+        }
+    }
+
+    return (
+        <Slider>
+            {props.items.map((photo, idx) => {
+                return (<Slide key={photo.id} style={{
+                    transform: `translateX(${100 * (idx - state.currentSlide)}%)`
+                }}>
+                    <img id={idx} key={idx}
+                        src={photo.src}
+                        alt={photo.alt}
+                    />
+                </Slide>)
+            })}
+            <CarouselButton direction="right"
+                onClick={nextHandler}>{'>'}</CarouselButton>
+            <CarouselButton direction="left"
+                onClick={prevHandler}>{'<'}</CarouselButton>
+        </Slider>
     );
 }
 
-export default function Carousel(props) {
-    const [slide, setSlide] = useState(0);
-    const slideNum = props.items.length - 1;
-
-    const handler = e => {
-        if (e.target.id === 'next') {
-            if(slide === slideNum) {
-                setSlide(0);
-            } else {
-                setSlide(slide+1);
-            }
-        } else if(e.target.id === 'prev') {
-            if(slide === 0) {
-                setSlide(slideNum);
-            } else {
-                setSlide(slide-1);
-            }
-        }
-    }
-    return (
-        <CarouselGrid>
-            <CarouselContainer>
-                <Slides items={props.items} slide={slide} />
-                <ButtonPrev id="prev" label="<" onClick={handler} />
-                <ButtonNext id="next" label=">" onClick={handler} />
-            </CarouselContainer>
-        </CarouselGrid>
-    );    
-}
-
 Carousel.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired
 }

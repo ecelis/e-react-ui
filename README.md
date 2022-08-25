@@ -23,17 +23,18 @@ npm install --save styled-components e-react-ui
 
 In a new `create-react-app` use the code below in `src/App.js` and run `npm start`.
 
-⚠️ IMPORTANT! Do NOT FORGET to `import 'e-react-ui/dist/e-react-ui.css';` in you App entrypoint react component. This requirement will go in the near future.
+⚠️ IMPORTANT! Do NOT FORGET to add `<GlobalStyle />` in you App entrypoint react component as sibling of components created with e-react-ui.
 
-```
+```javascript
 import logo from './logo.svg';
 import './App.css';
-import 'e-react-ui/dist/e-react-ui.css';
-import { Button } from 'e-react-ui/dist';
+import { GlobalStyle, Button } from 'e-react-ui/dist';
+import GlobalStyles from 'e-react-ui/dist/components/globalStyles';
 
 function App() {
   return (
     <div className="App">
+      <GlobalStyle />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
