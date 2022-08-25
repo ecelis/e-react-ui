@@ -28,6 +28,7 @@
 }
 
 body {
+  display: grid;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
   background-color: #f1ede9;
@@ -66,13 +67,11 @@ input {
   padding: 0.5rem;
   width: 300px;
 }
-
 .no-suggestions {
   color: #6667ab;
   color: var(--primary);
   padding: 0.5rem;
 }
-
 .suggestions {
   border: 1px solid #6667ab;
   border: 1px solid var(--primary);
@@ -84,11 +83,9 @@ input {
   padding-left: 0;
   width: calc(300px + 1rem);
 }
-
 .suggestions li {
   padding: 0.5rem;
 }
-
 .suggestion-active,
 .suggestions li:hover {
   background-color: #9fb3c8;
@@ -98,4 +95,4 @@ input {
 }
 
 
-/*# sourceMappingURL=main.eb4fcad0.css.map*/
+/*# sourceMappingURL=main.42fc81cb.css.map*/
