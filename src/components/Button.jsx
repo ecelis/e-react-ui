@@ -92,14 +92,13 @@ export function Pill (props) {
       onClick={props.onClick}
       to={props.url ? `${props.url}` : `${props.itemType},${props.id}`}
       selected={props.selected}>
-      {`${props.label}`}</BasePill>
+      {props.children}</BasePill>
   );
 }
 
 Pill.propTypes = {
   id: PropTypes.any.isRequired,
   itemType: PropTypes.any,
-  label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   url: PropTypes.string,
@@ -107,6 +106,5 @@ Pill.propTypes = {
 
 Pill.defaultProps = {
   onClick: (e) => e.target.preventDefault(),
-  selected: false,
-  label: 'Default'
+  selected: false
 }
