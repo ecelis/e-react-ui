@@ -86,11 +86,12 @@ const BasePill = styled(Link)`
 `;
 
 export function Pill (props) {
+  console.log(props)
   return (
     <BasePill
       id={props.id}
       onClick={props.onClick}
-      to={props.url ? `${props.url}` : `${props.itemType},${props.id}`}
+      to={props.itemType ? `${props.itemType},${props.id}` : `${props.to}`}
       selected={props.selected}>
       {props.children}</BasePill>
   );
@@ -101,10 +102,10 @@ Pill.propTypes = {
   itemType: PropTypes.any,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
-  url: PropTypes.string,
+  to: PropTypes.string
 }
 
 Pill.defaultProps = {
-  onClick: (e) => e.target.preventDefault(),
+  onClick: undefined,
   selected: false
 }
