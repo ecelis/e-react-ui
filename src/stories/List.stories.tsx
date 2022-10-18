@@ -1,5 +1,5 @@
-import React from "react";
-import {List} from '..';
+import * as React from "react";
+import List from '../components/List';
 
 export default {
     title: 'Control/List',

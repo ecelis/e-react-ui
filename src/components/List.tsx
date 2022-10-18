@@ -2,29 +2,29 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import styled, { ThemedStyledFunction } from 'styled-components';
 
-export declare interface ListProps extends ThemedStyledFunction<"ul", any, {}, never> {
+export declare interface IList extends ThemedStyledFunction<"ul", any, {}, never> {
     /** List items JSON */
     items: {
         id: string;
         value: string;
     }[];
-    /** flex axis, if 'y' set `display: flex;`, else `null`. */
+    /** Make list items horizontal, if 'y' set `display: flex;`, else `null`. */
     axis?: string;
     /** CSS value for `border:` */
-    outerBorder?: string;
+    outerBorder?: boolean;
     /** If true, add `bottom-border` to lit items. */
     innerBorder?: boolean;
 }
 
 const Ul = styled.ul`
-    ${({ axis }: ListProps) => axis === 'y' ? `display: flex;` : null}
+    ${({ axis }: IList) => axis === 'y' ? `display: flex;` : null}
     list-style-type: none;
     padding: 0;
     margin: 0;
-    ${({ outerBorder }: ListProps) => outerBorder ? `border: thin solid var(--primary);` : null}
-    ${({ innerBorder }: ListProps) => innerBorder ? `
+    ${({ outerBorder }: IList) => outerBorder ? `border: thin solid var(--primary);` : null}
+    ${({ innerBorder }: IList) => innerBorder ? `
         li {
-            ${({ axis }: ListProps) => axis === 'y' ? `margin-right: 3px;` : null}
+            ${({ axis }: IList) => axis === 'y' ? `margin-right: 3px;` : null}
             div { 
             border-bottom: thin solid var(--primary);
         };
@@ -32,7 +32,7 @@ const Ul = styled.ul`
 
 `;
 
-const List = (props: ListProps) => {
+const List = (props: IList): JSX.Element => {
     return (
         <Ul {...props}>
             {props.items.map((item, idx) => {
