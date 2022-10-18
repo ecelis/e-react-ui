@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import { useState } from "react";
 
@@ -94,14 +94,19 @@ const CalendarWrapper = styled.div`
 }
 `;
 
-const Days = function(props) {
+const Days = function(props): JSX.Element {
   const a = [];
   for(let i = props.current.first; i <= props.current.last; i++ ) {
+    // @ts-ignore
     a.push(i); 
   }
+  // @ts-ignore
   return (
+    // @ts-ignore
     a.map(item => {
+      // @ts-ignore
       return (
+        // @ts-ignore
         <div key={item}><time dateTime={`${props.current.year}-${props.current.month}-${item}`}>{item}</time></div>
       )
     })
